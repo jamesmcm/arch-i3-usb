@@ -1,0 +1,38 @@
+theme = "solarized-dark"
+icons = "awesome"
+
+[[block]]
+block = "music"
+player = "mpd"
+buttons = ["play", "next"]
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GiB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = "{icon}{used}/{total} {unit}"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%Y-%m-%d %R"

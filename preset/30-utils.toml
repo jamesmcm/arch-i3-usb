@@ -1,1 +1,1 @@
-packages = ["evince", "imagemagick", "ffmpeg", "scrot", "feh", "fd", "bat", "exa", "fzf", "jq", "neofetch", "sox", "perl-rename", "dos2unix"]
+packages = ["scrot", "feh", "fd", "bat", "exa", "fzf"]

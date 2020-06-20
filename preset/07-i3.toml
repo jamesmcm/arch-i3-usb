@@ -1,15 +1,9 @@
-packages = ["i3-wm", "i3lock", "i3status", "dmenu", "arandr", "rustup", "powerline-fonts", "ttf-font-awesome", "upower"]
-aur_packages = ["autotiling", "ttf-font-awesome-4"]
+packages = ["i3-wm", "i3lock", "i3status", "dmenu", "arandr"]
 shared_directories = ["i3_config"]
 script = """
-sudo -u ${ALMA_USER} rustup toolchain install nightly
-sudo -u ${ALMA_USER} rustup default nightly
-sudo -u ${ALMA_USER} yay -S --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu --useask --removemake --norebuild --noconfirm --answeredit None --answerclean None --mflags --noconfirm i3status-rust-git
 mkdir -p /home/${ALMA_USER}/.config/i3/
 cp /shared_dirs/i3_config/i3_config /home/${ALMA_USER}/.config/i3/config
-cp /shared_dirs/i3_config/status.toml /home/${ALMA_USER}/.config/i3/status.toml
 chown ${ALMA_USER} /home/${ALMA_USER}/.config/i3/config
-chown ${ALMA_USER} /home/${ALMA_USER}/.config/i3/status.toml
 chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/i3
 chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/i3
 mkdir -p /home/${ALMA_USER}/.config/i3status/
@@ -17,6 +11,5 @@ cp /shared_dirs/i3_config/i3status_config /home/${ALMA_USER}/.config/i3status/co
 chown ${ALMA_USER} /home/${ALMA_USER}/.config/i3status/config
 chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/i3status
 chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/i3status
-sudo -u ${ALMA_USER} yay -S --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu --useask --removemake --norebuild --noconfirm --answeredit None --answerclean None --mflags --noconfirm ttf-font-awesome-4
 """
 environment_variables = ["ALMA_USER"]

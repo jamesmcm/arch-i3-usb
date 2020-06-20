@@ -1,4 +1,4 @@
-packages = ["mpd", "ario", "ncmpcpp"]
+packages = ["mpd", "ario"]
 aur_packages = ["mpdris2"]
 shared_directories = ["mpd_config"]
 script = """
