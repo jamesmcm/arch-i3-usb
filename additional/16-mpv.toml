@@ -1,1 +1,1 @@
-packages = ["mpv", "libdvdcss"]
+packages = ["mpv", "libdvdcss", "youtube-dl"]

@@ -62,6 +62,14 @@ i.e. to install on a target USB with full disk encryption (__this will wipe the 
 ALMA_USER="test" TIMEZONE="Europe/Madrid" sudo -E alma create -e --presets ./arch-i3-usb/preset /dev/disk/by-id/usb-Generic_USB_Flash_Disk-0:0
 ```
 
+The `preset/` directory contains a basic installation which will fit on an
+8 GiB USB stick. If you have a larger disk it is highly recommended to
+use the additional preset files in the `additional/` directory:
+
+```bash
+$ cp -rf additional/* preset/
+```
+
 ## What is included
 ### User
 The user given by `ALMA_USER` is created with a home directory and XDG directories, and given passwordless sudo access.
@@ -88,13 +96,17 @@ This preset uses Xorg, not Wayland. A Wayland installation could be created by m
 
 ### PulseAudio
 
-PulseAudio is installed along with bluez for bluetooth headsets (use `bluetoothctl` to connect and pair devices).
+PulseAudio is installed. 
+
+In the additional presets, bluez is installed for bluetooth headsets (use `bluetoothctl` to connect and pair devices).
 
 pavucontrol can be launched with Meta+v to control the volumes and output devices.
 
 ### Virtual Terminal
 
-Urxvt is installed and can be launched with Meta+Enter.
+alacritty is the default terminal emulator and can be launched with Meta+Enter.
+
+Urxvt is also installed in the additional presets.
 
 ### Display Manager
 
@@ -108,17 +120,20 @@ i3status is also installed as a status bar, a sample configuration is included i
 
 vim and gvim are installed, along with the MiniVim configuration.
 
-emacs and nano are also installed.
+emacs and nano are also installed in the additional presets.
 
 ### Shell
+
+fish is the default shell.
 
 zsh is installed, along with the oh-my-zsh configuration.
 
 ### Web browsers
 
-Firefox and Chromium are installed.
+Firefox is installed.
 
-lynx and elinks are also installed for use on the CLI.
+In the additional presets, chromium is also installed, and
+lynx and elinks are installed for use on the CLI.
 
 ### File management
 
@@ -138,11 +153,13 @@ git is installed.
 
 ### Multimedia
 
-mpd is installed for playing music, along with the ncmpcpp and Ario frontends. It is not configured by default (since the music directory is unknown).
+In the additional presets, mpd is installed for playing music,
+along with the ncmpcpp and Ario frontends.
+The default music directory is set to ~/Music.
 
-mpv is installed.
+mpv is installed in the additional presets.
 
 ### KeepassXC
 
-KeepassXC is installed for password databases.
+In the additional presets, KeepassXC is installed for password databases.
 

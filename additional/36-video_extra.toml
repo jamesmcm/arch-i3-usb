@@ -1,0 +1,1 @@
+packages = ["mesa-vdpau", "libva-mesa-driver"]
