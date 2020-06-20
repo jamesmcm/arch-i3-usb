@@ -1,1 +1,1 @@
-packages = ["gparted", "ntfs-3g"]
+packages = ["gparted", "ntfs-3g", "exfat-utils", "iotop", "tree", "ncdu"]

@@ -1,0 +1,15 @@
+packages = ["tmux"]
+shared_directories = ["tmux_config"]
+
+script = """
+cp /shared_dirs/tmux_config/tmux.conf /home/${ALMA_USER}/.tmux.conf
+chown ${ALMA_USER} /home/${ALMA_USER}/.tmux.conf
+chgrp ${ALMA_USER} /home/${ALMA_USER}/.tmux.conf
+mkdir -p /home/${ALMA_USER}/.config/base16/tmux
+cp /shared_dirs/tmux_config/base16-classic-dark.conf /home/${ALMA_USER}/.config/base16/tmux/base16-classic-dark.conf
+chown ${ALMA_USER} /home/${ALMA_USER}/.config/base16/tmux/base16-classic-dark.conf
+chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/base16
+chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/base16
+"""
+
+environment_variables = ["ALMA_USER"]

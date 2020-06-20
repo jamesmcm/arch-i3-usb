@@ -1,1 +1,1 @@
-packages = ["firefox", "chromium", "lynx", "elinks"]
+packages = ["firefox", "lynx"]

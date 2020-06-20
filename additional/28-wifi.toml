@@ -1,0 +1,2 @@
+packages = ["bully", "cowpatty", "reaver", "sqlmap", "nmap", "gnu-netcat", "pyrit", "wifite", "john", "ipw2200-fw", "pixiewps", "linux-headers"]
+aur_packages = ["rtl88xxau-aircrack-dkms-git", "b43-firmware", "fern-wifi-cracker", "hash-identifier"]

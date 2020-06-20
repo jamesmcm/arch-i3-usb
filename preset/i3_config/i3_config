@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
+exec_always --no-startup-id autotiling
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -30,7 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -88,14 +89,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 bindsym $mod+v exec pavucontrol
-bindsym $mod+p exec emacs
-bindsym $mod+e exec gvim
+#bindsym $mod+p exec emacs
+#bindsym $mod+e exec gvim
+bindsym $mod+e exec alacritty -e tmux new-session nvim 
 bindsym $mod+m exec ario 
 bindsym $mod+f exec thunar
-bindsym $mod+w exec chromium
+bindsym --release $mod+s exec scrot -s
+bindsym $mod+w exec firefox
 bindsym $mod+b bar mode toggle
 bindsym $mod+Shift+b bar mode invisible
-
+bindsym $mod+Shift+p exec "killall -s SIGINT ffmpeg && play -q -n synth 0.1 sin 880"
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 
@@ -160,9 +163,24 @@ bindsym $mod+d mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+#bar {
+#	#mode hide
+#        status_command i3status
+#}
+
 bar {
-	#mode hide
-        status_command i3status
+	font pango:DejaVu Sans Mono, FontAwesome 10
+        position bottom
+        status_command /usr/bin/i3status-rs $HOME/.config/i3/status.toml
+        colors {
+	      separator #666666
+	     background #222222
+	      statusline #dddddd
+	     focused_workspace #0088CC #0088CC #ffffff
+	     active_workspace #333333 #333333 #ffffff
+	     inactive_workspace #333333 #333333 #888888
+	     urgent_workspace #2f343a #900000 #ffffff
+    }
 }
 
 new_window none

@@ -1,0 +1,11 @@
+packages = ["rustup"]
+
+script = """
+sudo -u ${ALMA_USER} rustup default nightly
+sudo -u ${ALMA_USER} rustup component add rustfmt
+sudo -u ${ALMA_USER} rustup component add clippy
+sudo -u ${ALMA_USER} rustup component add rust-src
+sudo -u ${ALMA_USER} rustup component add rust-docs
+sudo -u ${ALMA_USER} yay -S --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu --useask --removemake --norebuild --noconfirm --answeredit None --answerclean None --mflags --noconfirm rust-analyzer-git
+"""
+environment_variables = ["ALMA_USER"]

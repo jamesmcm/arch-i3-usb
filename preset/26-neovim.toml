@@ -1,0 +1,19 @@
+packages = ["neovim", "python-pynvim", "nodejs"]
+
+shared_directories = ["nvim_config", "nvim_base16"]
+
+script = """
+mkdir -p /home/${ALMA_USER}/.config/nvim
+cp -r /shared_dirs/nvim_config/* /home/${ALMA_USER}/.config/nvim/
+chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/nvim
+chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/nvim
+mkdir -p /home/${ALMA_USER}/.config/base16/vim/colors/
+cp /shared_dirs/nvim_base16/base16-classic-dark.vim /home/${ALMA_USER}/.config/base16/vim/colors/
+mkdir -p /home/${ALMA_USER}/.config/base16/shell/scripts/
+cp /shared_dirs/nvim_base16/base16-classic-dark.sh /home/${ALMA_USER}/.config/base16/shell/scripts/
+chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/base16
+chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/base16
+sudo -u ${ALMA_USER} nvim --headless +PlugInstall +qall
+"""
+
+environment_variables = ["ALMA_USER"]

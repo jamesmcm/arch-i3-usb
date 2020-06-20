@@ -1,4 +1,4 @@
-packages = ["dhcpcd", "networkmanager", "nm-connection-editor", "network-manager-applet"]
+packages = ["dhcpcd", "networkmanager", "nm-connection-editor", "network-manager-applet", "dhclient", "iw", "macchanger", "posix-user-portability", "wpa_supplicant", "dialog", "netctl"]
 script = """
 systemctl enable NetworkManager.service
 """

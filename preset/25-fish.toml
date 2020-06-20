@@ -1,0 +1,11 @@
+packages = ["fish"]
+shared_directories = ["fish_config"]
+
+script = """
+mkdir -p /home/${ALMA_USER}/.config/fish/
+cp -r /shared_dirs/fish_config/* /home/${ALMA_USER}/.config/fish/
+chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/fish
+chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/fish
+chsh -s /usr/bin/fish ${ALMA_USER}
+"""
+environment_variables = ["ALMA_USER"]
