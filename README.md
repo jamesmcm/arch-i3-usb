@@ -49,7 +49,16 @@ Provide ALMA the preset directory, specifying the `ALMA_USER` and `TIMEZONE` env
 i.e. for an image to use with qemu:
 
 ```bash
-ALMA_USER="test" TIMEZONE="Europe/Madrid" sudo -E alma create --presets ./arch-i3-usb/preset --image 5GiB image_name.img
+$ ALMA_USER="test" TIMEZONE="Europe/Madrid" sudo -E alma create --presets ./arch-i3-usb/preset --image 5GiB image_name.img
+```
+
+This can then be run in qemu via ALMA:
+
+```bash
+$ sudo losetup -f ./image_name.img
+$ sudo losetup -j ./image_name.img
+/dev/loop0: [2070]:6865917 (/path/to/image/image_name.img)
+$ sudo alma qemu /dev/loop0
 ```
 
 The `$ALMA_USER` and `$TIMEZONE` environment variables must be pased to ALMA. You will be asked to set the user password and root password during installation.
@@ -59,7 +68,7 @@ Full disk encryption can be enabled with the `-e` option, see the [ALMA](https:/
 i.e. to install on a target USB with full disk encryption (__this will wipe the target USB drive__):
 
 ```bash
-ALMA_USER="test" TIMEZONE="Europe/Madrid" sudo -E alma create -e --presets ./arch-i3-usb/preset /dev/disk/by-id/usb-Generic_USB_Flash_Disk-0:0
+$ ALMA_USER="test" TIMEZONE="Europe/Madrid" sudo -E alma create -e --presets ./arch-i3-usb/preset /dev/disk/by-id/usb-Generic_USB_Flash_Disk-0:0
 ```
 
 The `preset/` directory contains a basic installation which will fit on an
@@ -69,6 +78,9 @@ use the additional preset files in the `additional/` directory:
 ```bash
 $ cp -rf additional/* preset/
 ```
+
+The additional presets include many more useful utilities, and adds the
+i3status-rust bar.
 
 ## What is included
 ### User
