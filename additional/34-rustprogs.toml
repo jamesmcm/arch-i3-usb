@@ -1,8 +1,0 @@
-packages = ["rustup", "qemu"]
-
-script = """
-sudo -u ${ALMA_USER} rustup default nightly
-sudo -u ${ALMA_USER} yay -S --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu --useask --removemake --norebuild --noconfirm --answeredit None --answerclean None --mflags --noconfirm alma-git
-sudo -u ${ALMA_USER} yay -S --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu --useask --removemake --norebuild --noconfirm --answeredit None --answerclean None --mflags --noconfirm topgrade
-"""
-environment_variables = ["ALMA_USER"]

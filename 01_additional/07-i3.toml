@@ -1,0 +1,13 @@
+packages = ["i3-wm", "i3lock", "dmenu", "arandr", "powerline-fonts", "ttf-font-awesome", "upower"]
+aur_packages = ["autotiling", "ttf-font-awesome-4", "i3status-rust"]
+shared_directories = ["i3_config"]
+script = """
+mkdir -p /home/${ALMA_USER}/.config/i3/
+cp /shared_dirs/i3_config/i3_config /home/${ALMA_USER}/.config/i3/config
+cp /shared_dirs/i3_config/status.toml /home/${ALMA_USER}/.config/i3/status.toml
+chown ${ALMA_USER} /home/${ALMA_USER}/.config/i3/config
+chown ${ALMA_USER} /home/${ALMA_USER}/.config/i3/status.toml
+chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/i3
+chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/i3
+"""
+environment_variables = ["ALMA_USER"]

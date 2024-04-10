@@ -4,6 +4,7 @@ abbr -a e nvim
 abbr -a :e nvim
 abbr -a b bat
 abbr -a cat bat
+abbr -a yay paru
 abbr -a vim nvim
 abbr -a o xdg-open
 abbr -a g git
@@ -18,10 +19,13 @@ complete --command yay --wraps pacman
 set -U fish_user_paths /usr/local/sbin /usr/local/bin /usr/bin /bin
 
 if status --is-interactive
-	tmux ^ /dev/null; and exec true
+	tmux 2>/dev/null; and exec true
 end
 
-if command -v yay > /dev/null
+if command -v paru > /dev/null
+	abbr -a p 'paru'
+	abbr -a up 'paru -Syu'
+else if command -v yay > /dev/null
 	abbr -a p 'yay'
 	abbr -a up 'yay -Syu'
 else
@@ -70,11 +74,6 @@ setenv LESS_TERMCAP_se \e'[0m'           # end standout-mode
 setenv LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
 setenv LESS_TERMCAP_ue \e'[0m'           # end underline
 setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
-
-# For RLS
-# https://github.com/fish-shell/fish-shell/issues/2456
-setenv LD_LIBRARY_PATH (rustc +nightly --print sysroot)"/lib:$LD_LIBRARY_PATH"
-setenv RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
 
 setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
 setenv FZF_CTRL_T_COMMAND 'fd --type file --follow'

@@ -1,0 +1,44 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "solarized-dark"
+
+[icons]
+icons = "awesome4"
+
+[[block]]
+block = "music"
+player = "spotify"
+format = " $icon {$combo.str(max_w:50,rot_interval:0.5) $play $next |}"
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = "$icon $used/$total ($available/$percentage free)"
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents.eng(w:1) "
+interval = 30
+warning_mem = 70
+critical_mem = 90
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "time"
+interval = 60
+format = "$timestamp.datetime(f:'%a %Y-%m-%d %R')"
