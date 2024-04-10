@@ -1,2 +1,0 @@
-packages = ["tor", "torbrowser-launcher"]
-aur_packages = ["nyx"]

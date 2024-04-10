@@ -2,8 +2,8 @@ packages = ["alacritty"]
 shared_directories = ["alacritty_config"]
 script = """
 mkdir -p /home/${ALMA_USER}/.config/alacritty/
-cp /shared_dirs/alacritty_config/alacritty.yml /home/${ALMA_USER}/.config/alacritty/alacritty.yml
-chown ${ALMA_USER} /home/${ALMA_USER}/.config/alacritty/alacritty.yml
+cp /shared_dirs/alacritty_config/alacritty.toml /home/${ALMA_USER}/.config/alacritty/alacritty.toml
+chown ${ALMA_USER} /home/${ALMA_USER}/.config/alacritty/alacritty.toml
 chown -R ${ALMA_USER} /home/${ALMA_USER}/.config/alacritty
 chgrp -R ${ALMA_USER} /home/${ALMA_USER}/.config/alacritty
 """

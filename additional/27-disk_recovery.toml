@@ -1,2 +1,0 @@
-packages = ["ddrescue", "ext4magic", "partclone", "partimage", "chntpw", "foremost", "libeatmydata", "efibootmgr", "efitools", "refind", "testdisk", "arch-install-scripts", "mtools", "libisoburn", "brasero"]
-aur_packages = ["hfsprogs", "hfsprescue-bin", "extundelete"]
